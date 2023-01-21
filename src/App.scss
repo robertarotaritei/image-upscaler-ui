@@ -1,0 +1,221 @@
+$btn30: #00aaff4d;
+$btn40: #00aaff66;
+$btn50: #00aaff80;
+$btn: #00aaff;
+$background: #003764;
+
+:export {
+  background-color: $background;
+}
+
+@font-face {
+  font-family: "Aqua";
+  src: local("aqua"),
+    url("./fonts/aqua.ttf") format("truetype");
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Aqua';
+}
+
+h1 {
+  font-size: 3.75em !important;
+}
+
+h4 {
+  font-size: 1.25em !important;
+}
+
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navigation-bar {
+  display: table;
+  margin: 0 auto;
+  margin-top: 2.5em;
+}
+
+.navigation-bar li {
+  display: inline;
+  padding: 1em;
+  cursor: pointer;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline white 2px;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  0% { text-decoration: underline #ffffff00 2px; }
+  100% { text-decoration: underline white 2px; }
+}
+
+.overlay-nav {
+  position: absolute;
+  top: 0%;
+  left: 40%;
+  z-index:99;
+}
+
+.scroll-text {
+  position: absolute;
+  display: inline-block;
+  margin: 0 auto;
+  margin-left: 13vw;
+  min-width: 70vw;
+  width: 100%;
+  color: white;
+}
+
+.animate-text {
+  align-items: start;
+  overflow: hidden;
+  margin: auto 0;
+  white-space: nowrap;
+  text-align: left;
+  width: 100%;
+  animation: animated-text 0.9s steps(40,end);
+}
+
+@keyframes animated-text {
+  0%{width: 0%; border-right: solid 2px $btn;}
+
+  65%{border-right: solid 2px $btn;}
+  66%{border-right: none;}
+
+  100%{width: 70%;}
+}
+
+.upload {
+  &-btn {
+    position: relative;
+    text-align: center;
+    margin-top: 0.5em;
+    border: solid 1px $btn30;
+    background: none;
+    color: $btn50;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    font-size: 2em !important;
+    letter-spacing: 1.8px;
+    width: 250px;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.25s ease;
+    outline: none;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      width: 60px;
+      height: 1px;
+      transform: translateY(-1px);
+      background: $btn;
+      transition: all 0.25s ease;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 10%;
+      width: 60px;
+      height: 1px;
+      transform: translateY(1px);
+      background: $btn;
+      transition: all 0.25s ease;
+    }
+    &:hover {
+      box-shadow: 1px 1px 8px $btn30;
+      color: $btn;
+      text-shadow: 0 0 8px $btn50;
+      &.upload-btn:before {
+        left: 0;
+        width: 20px;
+      }
+      &.upload-btn:after {
+        right: 0;
+        width: 20px;
+      }
+      .upload-line:before {
+        bottom: 0;
+      }
+      .upload-line:after {
+        top: 0;
+      }
+    }
+  }
+  &-line {
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 30%;
+      right: 0;
+      width: 1px;
+      height: 20px;
+      transform: translateX(1px);
+      background: $btn;
+      transition: all 0.25s ease;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 30%;
+      left: 0;
+      width: 1px;
+      height: 20px;
+      transform: translateX(-1px);
+      background: $btn;
+      transition: all 0.25s ease;
+    }
+  }
+}
+
+.polygon-text {
+  filter: drop-shadow(1px 0px 0px rgb(0,170,255))
+          drop-shadow(-1px 0px 0px rgb(0,170,255))
+          drop-shadow(0px 1px 0px rgb(0,170,255))
+          drop-shadow(0px -1px 0px rgb(0,170,255))
+          drop-shadow(1px 1px 0px rgb(0,170,255))
+          drop-shadow(-1px -1px 0px rgb(0,170,255))
+          drop-shadow(-1px 1px 0px rgb(0,170,255))
+          drop-shadow(1px -1px 0px rgb(0,170,255));
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 2em !important;
+  }
+  h4 {
+    font-size: 1em !important;
+  }
+  .scroll-text {
+    margin: 2vw;
+    width: 90vw;
+    background-color: $background;
+    padding: 10px;
+    clip-path: polygon(9% 0, 84% 0, 100% 9%, 100% 100%, 6% 100%, 0 95%, 0 5%);
+  }
+  .overlay-nav {
+    left: 0%;
+  }
+}
