@@ -91,6 +91,19 @@ a:hover {
   animation: animated-text 0.9s steps(40,end);
 }
 
+.scroll-info {
+  position: absolute;
+  top: 85vh;
+  margin-left: 45vw;
+  text-align: center;
+  padding-top: 20px;
+  width: 75px;
+  height: 55px;
+  border-radius: 50%;
+  color: $btn50;
+  border: 2px solid $btn50;
+}
+
 @keyframes animated-text {
   0%{width: 0%; border-right: solid 2px $btn;}
 

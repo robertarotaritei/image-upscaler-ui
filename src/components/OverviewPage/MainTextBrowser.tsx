@@ -19,6 +19,7 @@ function MainTextBrowser() {
         </h4>
         <UploadButton />
       </div>
+      <h5 className="scroll-info">Scroll for more <div  style={{ fontSize: '1.5em !important' }}>🠗</div></h5>
       <div className="scroll-text" style={{ top: '162vh' }}>
         <h1 className="animate-text" style={{ fontSize: '2em !important' }}>
             Image upscaled using

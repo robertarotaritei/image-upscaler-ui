@@ -16,10 +16,7 @@ function UploadButton() {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
     return axios({method: 'post', url: `${process.env.REACT_APP_API}/upload`, data: formData}).then((response) => {
-      const a = document.createElement("a");
-      a.href = "data:image/png;base64," + response.data;
-      a.download = "Image.png";
-      a.click();
+      window.open(response.data, "_blank");
     });
   };
 
